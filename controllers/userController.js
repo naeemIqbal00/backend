@@ -42,9 +42,9 @@ const handleLogin = async (req, res) => {
     const my_user = await findUserByEmail(email);
     if (my_user) {
 
-        console.log("[handleLogin] user", my_user)
+
         const hashedPassword = await bcrypt.compare(password, my_user.password);
-        console.log("[handleLogin] hashedPaaword", hashedPassword)
+
         if (hashedPassword) {
             const token = jwt.sign(
                 { userId: my_user._id, email: my_user.email },
