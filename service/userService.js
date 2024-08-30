@@ -3,13 +3,10 @@ const { user } = require('../models/userSchema');
 
 
 const createUser = async (userData) => {
-    const user = new user(userData);
-    return await user.save();
+    const myUser = await user.create(userData);
+    return myUser;
 };
-const getAllUsers = async (userData) => {
 
-    return await user.find();
-};
 
 
 const findUserByEmail = async (email) => {
@@ -17,15 +14,9 @@ const findUserByEmail = async (email) => {
 };
 
 
-const findUserById = async (id) => {
-
-    return await user.findById(id);
-};
 
 
-const updateUserById = async (id, updateData) => {
-    return await user.findByIdAndUpdate(id, updateData, { new: true });
-};
+
 
 
 const deleteUserById = async (id) => {
@@ -35,8 +26,5 @@ const deleteUserById = async (id) => {
 module.exports = {
     createUser,
     findUserByEmail,
-    findUserById,
-    updateUserById,
     deleteUserById,
-    getAllUsers,
 };

@@ -1,10 +1,10 @@
 const express = require('express');
-const { handleSignUp, fetchAllUsers } = require('../controllers/userController');
+const { handleSignUp, handleLogin } = require('../controllers/userController');
 const router = express.Router();
 
 
 router.post('/create-user', handleSignUp);
-router.get('/get-all-user', fetchAllUsers);
+router.post('/sign-in', handleLogin);
 
 module.exports = router;
 
